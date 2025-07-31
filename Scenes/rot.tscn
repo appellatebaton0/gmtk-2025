@@ -1,0 +1,65 @@
+[gd_scene load_steps=9 format=3 uid="uid://diqbpms6ncips"]
+
+[ext_resource type="Theme" uid="uid://cvloyy7ohf1jt" path="res://Assets/Resources/main_theme.tres" id="1_4at1f"]
+[ext_resource type="Script" uid="uid://d3n1ry57g7eno" path="res://Scripts/rot.gd" id="1_deps4"]
+[ext_resource type="Shader" uid="uid://cweh0p1eaxkym" path="res://Assets/Shaders/boiling.gdshader" id="2_cr3xr"]
+[ext_resource type="Texture2D" uid="uid://dc4e800ovsvo3" path="res://Assets/Textures/rot.png" id="2_vagec"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ifkl1"]
+radius = 38.0
+height = 100.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xsxth"]
+atlas = ExtResource("2_vagec")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t7kwy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xsxth")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vagec"]
+shader = ExtResource("2_cr3xr")
+shader_parameter/interval = 0.2
+shader_parameter/timeDelay = 0.0
+shader_parameter/intensityX = 1.2
+shader_parameter/intensityY = 1.2
+shader_parameter/seed = 42.0
+
+[node name="Rot" type="Area2D" node_paths=PackedStringArray("prompt")]
+script = ExtResource("1_deps4")
+prompt = NodePath("Prompt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_ifkl1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_t7kwy")
+
+[node name="Prompt" type="Label" parent="."]
+material = SubResource("ShaderMaterial_vagec")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = -54.0
+offset_right = 278.0
+offset_bottom = 81.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.2, 0.2)
+theme = ExtResource("1_4at1f")
+theme_override_font_sizes/font_size = 76
+text = "Take Root
+(E)"
+horizontal_alignment = 1
+vertical_alignment = 1

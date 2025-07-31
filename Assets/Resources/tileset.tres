@@ -1,0 +1,19 @@
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://bvatby6xib0hx"]
+
+[ext_resource type="Texture2D" uid="uid://c3ikumy0bq2in" path="res://Assets/Textures/tileset.png" id="1_bxu0d"]
+[ext_resource type="PackedScene" uid="uid://bhnkijba54a5i" path="res://Scenes/death.tscn" id="2_l7lmj"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6phgx"]
+texture = ExtResource("1_bxu0d")
+texture_region_size = Vector2i(24, 24)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_a0vxj"]
+scenes/1/scene = ExtResource("2_l7lmj")
+
+[resource]
+tile_size = Vector2i(24, 24)
+physics_layer_0/collision_layer = 2
+sources/0 = SubResource("TileSetAtlasSource_6phgx")
+sources/1 = SubResource("TileSetScenesCollectionSource_a0vxj")

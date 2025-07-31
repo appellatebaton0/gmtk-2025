@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://ilxdyw2i1d5x"]
+
+[ext_resource type="Script" uid="uid://dwkvlqile85e3" path="res://Scripts/player.gd" id="1_cvnsp"]
+[ext_resource type="Texture2D" uid="uid://4pbg3xhdoukx" path="res://Assets/Textures/player.png" id="1_v0iea"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6t5aa"]
+atlas = ExtResource("1_v0iea")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vgqql"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6t5aa")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D" groups=["Players"]]
+collision_mask = 15
+floor_max_angle = 0.626573
+script = ExtResource("1_cvnsp")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-11, -10, -10, -11, 10, -11, 11, -10, 11, 9, 10, 11, 8, 12, -8, 12, -10, 11, -11, 9)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_vgqql")
+animation = &"Idle"

@@ -1,0 +1,64 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://cvloyy7ohf1jt"]
+
+[ext_resource type="FontFile" uid="uid://dn6wue8v4jngo" path="res://Assets/Fonts/Primrose-90rL.ttf" id="1_u27pc"]
+
+[sub_resource type="FontVariation" id="FontVariation_u27pc"]
+base_font = ExtResource("1_u27pc")
+baseline_offset = 0.115
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u27pc"]
+bg_color = Color(0.0494897, 0.224198, 0.13369, 1)
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color(0.0493, 0.17, 0.105627, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6phch"]
+bg_color = Color(0.1508, 0.52, 0.329247, 1)
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color(0.0899, 0.31, 0.192613, 0.890196)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bwxrg"]
+bg_color = Color(0.1247, 0.43, 0.272262, 1)
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color(0.0899, 0.31, 0.192613, 0.890196)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vd3xe"]
+bg_color = Color(0.1247, 0.43, 0.272262, 1)
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color(0.0899, 0.31, 0.192613, 0.890196)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[resource]
+Button/font_sizes/font_size = 90
+Button/fonts/font = SubResource("FontVariation_u27pc")
+Button/styles/disabled = SubResource("StyleBoxFlat_u27pc")
+Button/styles/hover = SubResource("StyleBoxFlat_6phch")
+Button/styles/normal = SubResource("StyleBoxFlat_bwxrg")
+Button/styles/pressed = SubResource("StyleBoxFlat_vd3xe")
+Label/fonts/font = ExtResource("1_u27pc")
