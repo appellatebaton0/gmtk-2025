@@ -1,9 +1,10 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://cvloyy7ohf1jt"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://cvloyy7ohf1jt"]
 
-[ext_resource type="FontFile" uid="uid://dn6wue8v4jngo" path="res://Assets/Fonts/Primrose-90rL.ttf" id="1_u27pc"]
+[ext_resource type="FontFile" uid="uid://gjb4w3kg2ysk" path="res://Assets/Fonts/MegamaxJonathanToo-YqOq2.ttf" id="1_fxk65"]
+[ext_resource type="FontFile" uid="uid://cugrdyalo332n" path="res://Assets/Fonts/HachicroUndertaleBattleFontRegular-L3zlg.ttf" id="2_6phch"]
 
 [sub_resource type="FontVariation" id="FontVariation_u27pc"]
-base_font = ExtResource("1_u27pc")
+base_font = ExtResource("1_fxk65")
 baseline_offset = 0.115
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u27pc"]
@@ -61,4 +62,4 @@ Button/styles/disabled = SubResource("StyleBoxFlat_u27pc")
 Button/styles/hover = SubResource("StyleBoxFlat_6phch")
 Button/styles/normal = SubResource("StyleBoxFlat_bwxrg")
 Button/styles/pressed = SubResource("StyleBoxFlat_vd3xe")
-Label/fonts/font = ExtResource("1_u27pc")
+Label/fonts/font = ExtResource("2_6phch")

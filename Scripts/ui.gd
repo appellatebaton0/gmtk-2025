@@ -20,12 +20,12 @@ func _update_tries_hud(left:int, total:int):
 			var new:TextureRect = TextureRect.new()
 			
 			var texture:AtlasTexture = AtlasTexture.new()
-			texture.atlas = load("res://Assets/Textures/spore.png")
-			texture.region.size = Vector2i(24, 24)
+			texture.atlas = load("res://Assets/Textures/icons.png")
+			texture.region.size = Vector2i(16, 16)
 			
 			new.texture = texture
 			new.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
-			new.custom_minimum_size = Vector2i(150, 150)
+			new.custom_minimum_size = Vector2i(100, 100)
 			
 			tries_hud.add_child(new)
 	var spores:Array[Node] = tries_hud.get_children()
@@ -33,7 +33,7 @@ func _update_tries_hud(left:int, total:int):
 		var spore = spores[i]
 		if spore is TextureRect:
 			if spore.texture is AtlasTexture:
-				spore.texture.region.position = Vector2(0, 0) if left > i else Vector2(24, 0)
+				spore.texture.region.position = Vector2(0, 0) if left > i else Vector2(16, 0)
 	pass
 
 func _on_animation_finished(anim_name: StringName) -> void:
@@ -49,6 +49,7 @@ func _on_animation_finished(anim_name: StringName) -> void:
 	pass
 
 func _on_levels_pressed() -> void:
+	Global.play_sfx.emit(load("res://Assets/SFX/press.wav"))
 	animator.play("main_to_levels")
 func _on_level_selected(_id:int) -> void:
 	match state:

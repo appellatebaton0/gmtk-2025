@@ -1,0 +1,56 @@
+[gd_scene load_steps=10 format=3 uid="uid://fuqigvsubufh"]
+
+[ext_resource type="Texture2D" uid="uid://cb73ipyec5cxx" path="res://Assets/Textures/level_button.png" id="1_wq0mr"]
+[ext_resource type="Script" uid="uid://bwm2pdhb752dm" path="res://Scripts/level_button.gd" id="2_1y13k"]
+[ext_resource type="Shader" uid="uid://cweh0p1eaxkym" path="res://Assets/Shaders/glow.gdshader" id="3_mpmrw"]
+[ext_resource type="FontFile" uid="uid://gjb4w3kg2ysk" path="res://Assets/Fonts/MegamaxJonathanToo-YqOq2.ttf" id="4_j8cp3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbfhi"]
+atlas = ExtResource("1_wq0mr")
+region = Rect2(0, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j8cp3"]
+atlas = ExtResource("1_wq0mr")
+region = Rect2(24, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j6rai"]
+atlas = ExtResource("1_wq0mr")
+region = Rect2(12, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a7ics"]
+atlas = ExtResource("1_wq0mr")
+region = Rect2(36, 0, 12, 12)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tgyh1"]
+shader = ExtResource("3_mpmrw")
+shader_parameter/from = Color(0, 0, 0, 1)
+shader_parameter/to = Color(0, 0, 0, 1)
+shader_parameter/threshold = 0.0
+shader_parameter/intensity = 0.0
+
+[node name="LevelButton" type="TextureButton"]
+texture_filter = 1
+custom_minimum_size = Vector2(180, 180)
+offset_right = 160.0
+offset_bottom = 160.0
+texture_normal = SubResource("AtlasTexture_jbfhi")
+texture_pressed = SubResource("AtlasTexture_j8cp3")
+texture_hover = SubResource("AtlasTexture_j6rai")
+texture_disabled = SubResource("AtlasTexture_a7ics")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("2_1y13k")
+
+[node name="Label" type="Label" parent="."]
+material = SubResource("ShaderMaterial_tgyh1")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_j8cp3")
+theme_override_font_sizes/font_size = 102
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1

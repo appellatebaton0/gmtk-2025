@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://diqbpms6ncips"]
+
+[ext_resource type="Theme" uid="uid://cvloyy7ohf1jt" path="res://Assets/Resources/main_theme.tres" id="1_4at1f"]
+[ext_resource type="Script" uid="uid://d3n1ry57g7eno" path="res://Scripts/rot.gd" id="1_deps4"]
+[ext_resource type="Shader" uid="uid://cweh0p1eaxkym" path="res://Assets/Shaders/glow.gdshader" id="2_cr3xr"]
+[ext_resource type="FontFile" uid="uid://gjb4w3kg2ysk" path="res://Assets/Fonts/MegamaxJonathanToo-YqOq2.ttf" id="4_egnc4"]
+[ext_resource type="Texture2D" uid="uid://df8jw3pdmq8bt" path="res://Assets/Textures/soil.png" id="4_in2gb"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ifkl1"]
+radius = 16.0
+height = 36.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vagec"]
+shader = ExtResource("2_cr3xr")
+shader_parameter/from = Color(0, 0, 0, 1)
+shader_parameter/to = Color(0, 0, 0, 1)
+shader_parameter/threshold = 0.0
+shader_parameter/intensity = 0.0
+
+[node name="Goal" type="Area2D" node_paths=PackedStringArray("prompt")]
+script = ExtResource("1_deps4")
+prompt = NodePath("Prompt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = -1
+position = Vector2(-4, 4)
+shape = SubResource("CapsuleShape2D_ifkl1")
+
+[node name="Prompt" type="Label" parent="."]
+z_index = -1
+material = SubResource("ShaderMaterial_vagec")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -27.0
+offset_right = 501.0
+offset_bottom = 138.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.075, 0.075)
+theme = ExtResource("1_4at1f")
+theme_override_fonts/font = ExtResource("4_egnc4")
+theme_override_font_sizes/font_size = 80
+text = "Take Root
+(E)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+texture_filter = 1
+position = Vector2(-4, 4)
+texture = ExtResource("4_in2gb")

@@ -1,14 +1,19 @@
 extends Node
 
+signal play_background_music(music:AudioStream)
+signal play_sfx(sfx:AudioStream)
+
 signal level_complete(raw:bool)
 signal level_selected(id:int)
 
 signal update_tries_hud(left:int, total:int)
 
 @onready var main:Main = get_tree().get_first_node_in_group("Main")
+@onready var camera:Camera = get_tree().get_first_node_in_group("Camera")
 
 func _level_complete(raw:bool = false):
 	if raw:
+		play_sfx.emit(load("res://Assets/SFX/win.wav"))
 		progress += 1
 		level_complete.emit(false)
 

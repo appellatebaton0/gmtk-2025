@@ -13,8 +13,9 @@ config_version=5
 config/name="gmtk-2025"
 run/main_scene="uid://dt8o3e63inrbm"
 config/features=PackedStringArray("4.4", "Forward Plus")
-boot_splash/bg_color=Color(0.00784314, 0.0784314, 0.00784314, 1)
+boot_splash/bg_color=Color(0.0235294, 0.054902, 0.137255, 1)
 boot_splash/show_image=false
+config/icon="uid://bpha8s6urhb2u"
 
 [autoload]
 
@@ -35,6 +36,7 @@ enabled=PackedStringArray("res://addons/wakatime/plugin.cfg")
 Players="All the spores in the main scene"
 Main=""
 Levels=""
+Camera=""
 
 [input]
 
@@ -79,6 +81,5 @@ Interact={
 
 [rendering]
 
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"
-environment/defaults/default_clear_color=Color(0.164706, 0.54902, 0.498039, 1)
+textures/vram_compression/import_etc2_astc=true
+environment/defaults/default_clear_color=Color(0.0235294, 0.054902, 0.137255, 1)
