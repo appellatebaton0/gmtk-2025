@@ -1,10 +1,9 @@
-[gd_scene load_steps=39 format=4 uid="uid://1q5m6n7jiw85"]
+[gd_scene load_steps=37 format=4 uid="uid://1q5m6n7jiw85"]
 
 [ext_resource type="Script" uid="uid://c6u0xv86mrhuk" path="res://Scripts/level.gd" id="1_vfl4p"]
 [ext_resource type="Texture2D" uid="uid://c3ikumy0bq2in" path="res://Assets/Textures/tileset.png" id="2_wlbe4"]
 [ext_resource type="TileSet" uid="uid://bvatby6xib0hx" path="res://Assets/Resources/tileset.tres" id="3_i6bqf"]
 [ext_resource type="PackedScene" uid="uid://bhnkijba54a5i" path="res://Scenes/death.tscn" id="4_n80jh"]
-[ext_resource type="Shader" uid="uid://cweh0p1eaxkym" path="res://Assets/Shaders/glow.gdshader" id="5_q21to"]
 [ext_resource type="PackedScene" uid="uid://diqbpms6ncips" path="res://Scenes/goal.tscn" id="6_nqbrd"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_20uw2"]
@@ -222,13 +221,6 @@ occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 2
 sources/0 = SubResource("TileSetAtlasSource_awofh")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ir7pk"]
-shader = ExtResource("5_q21to")
-shader_parameter/from = Color(0.937255, 0.929412, 0.419608, 1)
-shader_parameter/to = Color(7.182, 0, 58.563, 1)
-shader_parameter/threshold = 0.16
-shader_parameter/intensity = 92.68
-
 [node name="Level" type="Node2D" node_paths=PackedStringArray("spawnpoint") groups=["Levels"]]
 script = ExtResource("1_vfl4p")
 tries = 1
@@ -254,7 +246,6 @@ tile_map_data = PackedByteArray("AADT/yIAAAAAAAAAAADT/yMAAAAAAAAAAADT/yQAAAAAAAA
 tile_set = ExtResource("3_i6bqf")
 
 [node name="Death" parent="." instance=ExtResource("4_n80jh")]
-material = SubResource("ShaderMaterial_ir7pk")
 tile_map_data = PackedByteArray("AAAOABsAAAAEAAAAAFAOABoAAAAEAAAAAFAOABkAAAAEAAAAAFABABIAAAABAAAAAAABABMAAAACAAAAAAAEAC0AAAAAAAAAAAAFAC0AAAAAAAAAAAAGAC0AAAAAAAAAAAAHAC0AAAAAAAAAAAADACwAAAAAAAAAAFADAC0AAAABAAEAAAAYACUAAAADAAAAABAYACYAAAAAAAAAAGAYACcAAAAAAAAAAGAYACgAAAAAAAAAAGAYACkAAAAAAAAAAGAYACoAAAAAAAAAAGAYACsAAAAAAAAAAGAYACwAAAAAAAAAAGAYAC0AAAABAAEAAGAQAC0AAAAAAAAAAAARAC0AAAAAAAAAABASAC0AAAAAAAAAAAATAC0AAAAAAAAAAAAUAC0AAAAAAAAAAAAVAC0AAAAAAAAAAAAWAC0AAAAAAAAAABAXAC0AAAAAAAAAAAD2/yUAAAAAAAAAAAD3/yUAAAAAAAAAAAD4/yUAAAAAAAAAAAD5/yUAAAAAAAAAAAD6/yUAAAAAAAAAAAD7/yUAAAAAAAAAAAD8/yUAAAAAAAAAAAD9/yUAAAAAAAAAAAD+/yUAAAAAAAAAAAD//yUAAAAAAAAAAAAAACUAAAAAAAAAAAABACUAAAAAAAAAAAD1/xsAAQABAAEAAAD2/xsAAQABAAEAAAD0/xsAAQABAAEAAAD3/xsAAQABAAEAAAA=")
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]

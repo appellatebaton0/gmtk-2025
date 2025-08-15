@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dt8o3e63inrbm"]
+[gd_scene load_steps=25 format=3 uid="uid://dt8o3e63inrbm"]
 
 [ext_resource type="PackedScene" uid="uid://ilxdyw2i1d5x" path="res://Scenes/player.tscn" id="1_bo1nx"]
 [ext_resource type="Script" uid="uid://b634ujgu4qsxf" path="res://Scripts/main.gd" id="1_kry3j"]
@@ -10,6 +10,11 @@
 [ext_resource type="Script" uid="uid://romf1dymn7gx" path="res://Scripts/fancy_button.gd" id="7_hptm8"]
 [ext_resource type="Script" uid="uid://de5ogqntd17vq" path="res://Scripts/level_selector.gd" id="8_344ge"]
 [ext_resource type="FontFile" uid="uid://gjb4w3kg2ysk" path="res://Assets/Fonts/MegamaxJonathanToo-YqOq2.ttf" id="8_ynf5e"]
+
+[sub_resource type="Environment" id="Environment_hptm8"]
+background_mode = 3
+glow_enabled = true
+glow_blend_mode = 4
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6iyac"]
 atlas = ExtResource("6_ynf5e")
@@ -415,6 +420,9 @@ script = ExtResource("2_21xkr")
 [node name="Player" parent="." instance=ExtResource("1_bo1nx")]
 position = Vector2(50, 0)
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_hptm8")
+
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.791999, 0.791999, 0.791999, 1)
 
@@ -561,7 +569,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/h_separation = 30
 theme_override_constants/v_separation = 30
-columns = 5
+columns = 4
 script = ExtResource("8_344ge")
 
 [node name="SplashScreen" type="TextureRect" parent="CanvasLayer/UI"]

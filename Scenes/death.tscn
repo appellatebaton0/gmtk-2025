@@ -1,7 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://bhnkijba54a5i"]
+[gd_scene load_steps=6 format=4 uid="uid://bhnkijba54a5i"]
 
 [ext_resource type="Texture2D" uid="uid://diw708v0nllu5" path="res://Assets/Textures/crystal.png" id="1_mna5k"]
-[ext_resource type="Script" uid="uid://cxjnu1t5ti8d5" path="res://Scripts/death.gd" id="2_mna5k"]
+[ext_resource type="Shader" uid="uid://cweh0p1eaxkym" path="res://Assets/Shaders/glow.gdshader" id="1_rsl6c"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u4dtd"]
+shader = ExtResource("1_rsl6c")
+shader_parameter/from = Color(0.937255, 0.929412, 0.419608, 1)
+shader_parameter/to = Color(2.811, 2.787, 1.26, 1)
+shader_parameter/threshold = 0.16
+shader_parameter/intensity = 4.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rsl6c"]
 texture = ExtResource("1_mna5k")
@@ -24,5 +31,6 @@ sources/1 = SubResource("TileSetAtlasSource_rsl6c")
 
 [node name="Death" type="TileMapLayer"]
 texture_filter = 1
+material = SubResource("ShaderMaterial_u4dtd")
+tile_map_data = PackedByteArray("AAD9/wAAAQAAAAAAAAD9/wEAAQAAAAEAAAD+/wAAAQABAAAAAAD+/wEAAQABAAEAAAD//wAAAQACAAAAAAD//wEAAQACAAEAAAA=")
 tile_set = SubResource("TileSet_tm1ch")
-script = ExtResource("2_mna5k")

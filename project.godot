@@ -78,6 +78,7 @@ Interact={
 2d_physics/layer_2="Environment"
 2d_physics/layer_3="Death"
 2d_physics/layer_4="Upgrades"
+2d_physics/layer_5="Actor"
 
 [rendering]
 

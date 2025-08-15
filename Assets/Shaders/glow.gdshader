@@ -7,9 +7,9 @@ uniform float intensity;
 
 void fragment() {
     vec4 color = texture(TEXTURE,UV);
-	
+
 	float distance = length(from - color);
-	
+
 	if (distance < threshold)
 	{
 		COLOR = color * (to + intensity * abs(distance - threshold));
@@ -18,6 +18,6 @@ void fragment() {
 	{
 		COLOR = color;
 	}
-	
-    
+
+
 }

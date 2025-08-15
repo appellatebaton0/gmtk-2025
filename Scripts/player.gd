@@ -80,6 +80,6 @@ func _physics_process(delta: float) -> void:
 	modulate.a = move_toward(modulate.a, 1.0, delta * 5)
 	move_and_slide()
 
-
+# Oh wow, death.
 func _on_hurtbox_body_entered(_body: Node2D) -> void:
 	die()

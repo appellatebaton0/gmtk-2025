@@ -1,0 +1,78 @@
+[gd_scene load_steps=10 format=3 uid="uid://c1gq6vj8lxk4n"]
+
+[ext_resource type="Script" uid="uid://pcaxi8ie3edo" path="res://Scripts/actors/wall.gd" id="1_i8qs2"]
+[ext_resource type="Texture2D" uid="uid://dey3waad8oo0g" path="res://Assets/Textures/wall.png" id="2_chxur"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1nqwc"]
+atlas = ExtResource("2_chxur")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c8nka"]
+atlas = ExtResource("2_chxur")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ldg8e"]
+atlas = ExtResource("2_chxur")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55vlw"]
+atlas = ExtResource("2_chxur")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_15bjw"]
+atlas = ExtResource("2_chxur")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_03auv"]
+atlas = ExtResource("2_chxur")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2cg71"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1nqwc")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c8nka")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ldg8e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_55vlw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_15bjw")
+}],
+"loop": false,
+"name": &"transition",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_03auv")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[node name="Wall" type="StaticBody2D"]
+collision_layer = 2
+script = ExtResource("1_i8qs2")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-8, 8, -8, -3, -4, -3, -4, -7, 3, -7, 3, -4, 6, -4, 6, 0, 8, 0, 8, 8)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_2cg71")
+animation = &"up"
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animation_finished"]

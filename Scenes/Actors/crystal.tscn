@@ -1,0 +1,71 @@
+[gd_scene load_steps=9 format=3 uid="uid://c70lysg7ftiok"]
+
+[ext_resource type="Script" uid="uid://pcaxi8ie3edo" path="res://Scripts/actors/wall.gd" id="1_8xu04"]
+[ext_resource type="Texture2D" uid="uid://hpx74a8gflgj" path="res://Assets/Textures/act_crystal.png" id="2_jfe8w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gsr1t"]
+atlas = ExtResource("2_jfe8w")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wdlc7"]
+atlas = ExtResource("2_jfe8w")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_myipx"]
+atlas = ExtResource("2_jfe8w")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s68ow"]
+atlas = ExtResource("2_jfe8w")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3u2s2"]
+atlas = ExtResource("2_jfe8w")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sjaql"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gsr1t")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wdlc7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_myipx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s68ow")
+}],
+"loop": false,
+"name": &"transition",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3u2s2")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[node name="Crystal" type="StaticBody2D"]
+collision_layer = 4
+script = ExtResource("1_8xu04")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-8, 8, -6, -2, -2, -2, -2, -5, 3, -5, 3, 0, 7, 0, 8, 8)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_sjaql")
+animation = &"up"
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animation_finished"]
